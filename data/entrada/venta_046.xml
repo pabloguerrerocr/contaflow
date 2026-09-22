@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50619032600310178945600100001010000000046100000046</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000046</NumeroConsecutivo>
+  <FechaEmision>2026-03-19T08:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Hotel Montaña Verde S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101887766</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>5610100000000</CodigoCABYS>
+      <Cantidad>23</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio de cafeteria en local</Detalle>
+      <PrecioUnitario>2500</PrecioUnitario>
+      <MontoTotal>57500.00</MontoTotal>
+      <SubTotal>57500.00</SubTotal>
+      <BaseImponible>57500.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>7475.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>7475.00</ImpuestoNeto>
+      <MontoTotalLinea>64975.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>25</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>45000.00</MontoTotal>
+      <SubTotal>45000.00</SubTotal>
+      <BaseImponible>45000.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>450.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>450.00</ImpuestoNeto>
+      <MontoTotalLinea>45450.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>3</NumeroLinea>
+      <CodigoCABYS>2313100000000</CodigoCABYS>
+      <Cantidad>57</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Queque seco de naranja</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>102600.00</MontoTotal>
+      <SubTotal>102600.00</SubTotal>
+      <BaseImponible>102600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>13338.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>13338.00</ImpuestoNeto>
+      <MontoTotalLinea>115938.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>205100.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>205100.00</TotalVentaNeta>
+    <TotalImpuesto>21263.00</TotalImpuesto>
+    <TotalComprobante>226363.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

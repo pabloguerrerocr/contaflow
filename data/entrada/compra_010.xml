@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50619032600310199001100100001010000000010100000010</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000010</NumeroConsecutivo>
+  <FechaEmision>2026-03-19T09:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Inmobiliaria Perez Zeledon S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101990011</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>6811100000000</CodigoCABYS>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Alquiler de local comercial</Detalle>
+      <PrecioUnitario>250000</PrecioUnitario>
+      <MontoTotal>250000.00</MontoTotal>
+      <SubTotal>250000.00</SubTotal>
+      <BaseImponible>250000.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>32500.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>32500.00</ImpuestoNeto>
+      <MontoTotalLinea>282500.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>250000.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>250000.00</TotalVentaNeta>
+    <TotalImpuesto>32500.00</TotalImpuesto>
+    <TotalComprobante>282500.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50608032600310104050600100001010000000022100000022</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000022</NumeroConsecutivo>
+  <FechaEmision>2026-03-08T12:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Servicios Integrales GYS S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101040506</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>8299100000000</CodigoCABYS>
+      <Cantidad>2</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio mensual segun contrato 2026</Detalle>
+      <PrecioUnitario>34800</PrecioUnitario>
+      <MontoTotal>69600.00</MontoTotal>
+      <SubTotal>69600.00</SubTotal>
+      <BaseImponible>69600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>9048.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>9048.00</ImpuestoNeto>
+      <MontoTotalLinea>78648.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>69600.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>69600.00</TotalVentaNeta>
+    <TotalImpuesto>9048.00</TotalImpuesto>
+    <TotalComprobante>78648.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

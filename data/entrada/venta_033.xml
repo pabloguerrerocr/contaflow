@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50621032600310178945600100001010000000033100000033</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000033</NumeroConsecutivo>
+  <FechaEmision>2026-03-21T13:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Soda El Buen Sabor S.R.L.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101445599</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>39</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>9500</PrecioUnitario>
+      <MontoTotal>370500.00</MontoTotal>
+      <SubTotal>370500.00</SubTotal>
+      <BaseImponible>370500.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>3705.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>3705.00</ImpuestoNeto>
+      <MontoTotalLinea>374205.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>370500.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>370500.00</TotalVentaNeta>
+    <TotalImpuesto>3705.00</TotalImpuesto>
+    <TotalComprobante>374205.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

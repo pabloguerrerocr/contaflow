@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50616032600310178945600100001010000000049100000049</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000049</NumeroConsecutivo>
+  <FechaEmision>2026-03-16T13:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Supermercado Central del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101334499</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>2312100000100</CodigoCABYS>
+      <Cantidad>21</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan dulce surtido docena</Detalle>
+      <PrecioUnitario>4200</PrecioUnitario>
+      <MontoTotal>88200.00</MontoTotal>
+      <SubTotal>88200.00</SubTotal>
+      <BaseImponible>88200.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>882.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>882.00</ImpuestoNeto>
+      <MontoTotalLinea>89082.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>5610100000000</CodigoCABYS>
+      <Cantidad>58</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio de cafeteria en local</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>104400.00</MontoTotal>
+      <SubTotal>104400.00</SubTotal>
+      <BaseImponible>104400.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>13572.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>13572.00</ImpuestoNeto>
+      <MontoTotalLinea>117972.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>3</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>57</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>2500</PrecioUnitario>
+      <MontoTotal>142500.00</MontoTotal>
+      <SubTotal>142500.00</SubTotal>
+      <BaseImponible>142500.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>1425.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>1425.00</ImpuestoNeto>
+      <MontoTotalLinea>143925.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>335100.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>335100.00</TotalVentaNeta>
+    <TotalImpuesto>15879.00</TotalImpuesto>
+    <TotalComprobante>350979.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

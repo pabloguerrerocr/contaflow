@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TiqueteElectronico xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/TE">
+  <Clave>50611032600310178945600100001040000000058100000058</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001040000000058</NumeroConsecutivo>
+  <FechaEmision>2026-03-11T15:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Consumidor final</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>110450678</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>2313100000000</CodigoCABYS>
+      <Cantidad>24</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Queque seco de naranja</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>43200.00</MontoTotal>
+      <SubTotal>43200.00</SubTotal>
+      <BaseImponible>43200.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>5616.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>5616.00</ImpuestoNeto>
+      <MontoTotalLinea>48816.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>8</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>14400.00</MontoTotal>
+      <SubTotal>14400.00</SubTotal>
+      <BaseImponible>14400.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>144.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>144.00</ImpuestoNeto>
+      <MontoTotalLinea>14544.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>57600.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>57600.00</TotalVentaNeta>
+    <TotalImpuesto>5760.00</TotalImpuesto>
+    <TotalComprobante>63360.00</TotalComprobante>
+  </ResumenFactura>
+</TiqueteElectronico>

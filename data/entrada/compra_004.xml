@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50604032600310144556600100001010000000004100000004</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000004</NumeroConsecutivo>
+  <FechaEmision>2026-03-04T11:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Compania Nacional de Fuerza y Luz</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101445566</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>6531100000100</CodigoCABYS>
+      <Cantidad>4</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio electrico comercial marzo</Detalle>
+      <PrecioUnitario>12500</PrecioUnitario>
+      <MontoTotal>50000.00</MontoTotal>
+      <SubTotal>50000.00</SubTotal>
+      <BaseImponible>50000.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>6500.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>6500.00</ImpuestoNeto>
+      <MontoTotalLinea>56500.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>50000.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>50000.00</TotalVentaNeta>
+    <TotalImpuesto>6500.00</TotalImpuesto>
+    <TotalComprobante>56500.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

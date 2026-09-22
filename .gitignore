@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+~$*
+.env
+
+# Memorias de clasificación: contienen datos de clientes reales
+config/memoria_*.json

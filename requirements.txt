@@ -1,0 +1,8 @@
+# Nucleo: parseo, calculo y salida. Todo esto ya estaba instalado.
+lxml>=5.0
+pandas>=2.2
+openpyxl>=3.1
+
+# Clasificacion con Claude. Opcional: sin esto, contaflow corre solo con reglas
+# y deja lo ambiguo en la cuenta puente 6-01-99.
+anthropic>=1.0

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50611032600310178945600100001010000000084100000084</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000084</NumeroConsecutivo>
+  <FechaEmision>2026-03-11T12:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Hotel Montaña Verde S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101887766</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>2312100000100</CodigoCABYS>
+      <Cantidad>38</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan dulce surtido docena</Detalle>
+      <PrecioUnitario>9500</PrecioUnitario>
+      <MontoTotal>361000.00</MontoTotal>
+      <SubTotal>361000.00</SubTotal>
+      <BaseImponible>361000.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>3610.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>3610.00</ImpuestoNeto>
+      <MontoTotalLinea>364610.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>5610100000000</CodigoCABYS>
+      <Cantidad>15</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio de cafeteria en local</Detalle>
+      <PrecioUnitario>2500</PrecioUnitario>
+      <MontoTotal>37500.00</MontoTotal>
+      <SubTotal>37500.00</SubTotal>
+      <BaseImponible>37500.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>4875.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>4875.00</ImpuestoNeto>
+      <MontoTotalLinea>42375.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>398500.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>398500.00</TotalVentaNeta>
+    <TotalImpuesto>8485.00</TotalImpuesto>
+    <TotalComprobante>406985.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50614032600011022033000100001010000000024100000024</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000024</NumeroConsecutivo>
+  <FechaEmision>2026-03-14T16:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Marvin Solis Mora</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>110220330</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>4330100000000</CodigoCABYS>
+      <Cantidad>2</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Trabajo realizado en local comercial</Detalle>
+      <PrecioUnitario>7650</PrecioUnitario>
+      <MontoTotal>15300.00</MontoTotal>
+      <SubTotal>15300.00</SubTotal>
+      <BaseImponible>15300.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>1989.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>1989.00</ImpuestoNeto>
+      <MontoTotalLinea>17289.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>15300.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>15300.00</TotalVentaNeta>
+    <TotalImpuesto>1989.00</TotalImpuesto>
+    <TotalComprobante>17289.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

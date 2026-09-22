@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50625032600310101020300100001010000000019100000019</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000019</NumeroConsecutivo>
+  <FechaEmision>2026-03-25T12:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Comercial Zeta del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101010203</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>4759100000000</CodigoCABYS>
+      <Cantidad>4</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Articulos varios segun detalle adjunto</Detalle>
+      <PrecioUnitario>18400</PrecioUnitario>
+      <MontoTotal>73600.00</MontoTotal>
+      <SubTotal>73600.00</SubTotal>
+      <BaseImponible>73600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>9568.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>9568.00</ImpuestoNeto>
+      <MontoTotalLinea>83168.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>73600.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>73600.00</TotalVentaNeta>
+    <TotalImpuesto>9568.00</TotalImpuesto>
+    <TotalComprobante>83168.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

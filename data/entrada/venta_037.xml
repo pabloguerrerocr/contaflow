@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50627032600310178945600100001010000000037100000037</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000037</NumeroConsecutivo>
+  <FechaEmision>2026-03-27T11:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Soda El Buen Sabor S.R.L.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101445599</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>2312100000100</CodigoCABYS>
+      <Cantidad>30</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan dulce surtido docena</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>54000.00</MontoTotal>
+      <SubTotal>54000.00</SubTotal>
+      <BaseImponible>54000.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>540.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>540.00</ImpuestoNeto>
+      <MontoTotalLinea>54540.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>9</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>4200</PrecioUnitario>
+      <MontoTotal>37800.00</MontoTotal>
+      <SubTotal>37800.00</SubTotal>
+      <BaseImponible>37800.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>378.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>378.00</ImpuestoNeto>
+      <MontoTotalLinea>38178.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>3</NumeroLinea>
+      <CodigoCABYS>5610100000000</CodigoCABYS>
+      <Cantidad>38</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio de cafeteria en local</Detalle>
+      <PrecioUnitario>4200</PrecioUnitario>
+      <MontoTotal>159600.00</MontoTotal>
+      <SubTotal>159600.00</SubTotal>
+      <BaseImponible>159600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>20748.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>20748.00</ImpuestoNeto>
+      <MontoTotalLinea>180348.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>251400.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>251400.00</TotalVentaNeta>
+    <TotalImpuesto>21666.00</TotalImpuesto>
+    <TotalComprobante>273066.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

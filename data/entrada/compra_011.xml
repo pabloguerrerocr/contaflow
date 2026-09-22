@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50623032600310233445500100001010000000011100000011</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000011</NumeroConsecutivo>
+  <FechaEmision>2026-03-23T16:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Seguros del Istmo Ltda.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3102334455</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>6512100000000</CodigoCABYS>
+      <Cantidad>3</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Prima poliza incendio</Detalle>
+      <PrecioUnitario>91200</PrecioUnitario>
+      <MontoTotal>273600.00</MontoTotal>
+      <SubTotal>273600.00</SubTotal>
+      <BaseImponible>273600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>03</CodigoTarifaIVA>
+        <Tarifa>2</Tarifa>
+        <Monto>5472.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>5472.00</ImpuestoNeto>
+      <MontoTotalLinea>279072.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>273600.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>273600.00</TotalVentaNeta>
+    <TotalImpuesto>5472.00</TotalImpuesto>
+    <TotalComprobante>279072.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

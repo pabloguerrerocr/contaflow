@@ -1,0 +1,29 @@
+codigo,nombre,tipo,naturaleza
+1-01-01,Caja y bancos,activo,deudora
+1-01-02,Cuentas por cobrar comerciales,activo,deudora
+1-01-03,IVA por acreditar - credito fiscal,activo,deudora
+1-01-04,Inventarios,activo,deudora
+1-02-01,Mobiliario y equipo,activo,deudora
+1-02-02,Equipo de computo,activo,deudora
+1-02-03,Vehiculos,activo,deudora
+2-01-01,Cuentas por pagar comerciales,pasivo,acreedora
+2-01-02,IVA por pagar - debito fiscal,pasivo,acreedora
+2-01-03,Retenciones por pagar,pasivo,acreedora
+3-01-01,Capital social,patrimonio,acreedora
+4-01-01,Ingresos por servicios,ingreso,acreedora
+4-01-02,Ingresos por venta de mercaderia,ingreso,acreedora
+5-01-01,Costo de ventas,costo,deudora
+6-01-01,Alquileres,gasto,deudora
+6-01-02,"Servicios publicos (agua, luz, telecom)",gasto,deudora
+6-01-03,Combustibles y lubricantes,gasto,deudora
+6-01-04,Mantenimiento y reparaciones,gasto,deudora
+6-01-05,Papeleria y utiles de oficina,gasto,deudora
+6-01-06,Servicios profesionales,gasto,deudora
+6-01-07,Publicidad y mercadeo,gasto,deudora
+6-01-08,Seguros,gasto,deudora
+6-01-09,Cargas sociales y planilla,gasto,deudora
+6-01-10,Software y suscripciones tecnologicas,gasto,deudora
+6-01-11,"Transporte, fletes y encomiendas",gasto,deudora
+6-01-12,Alimentacion y atencion a clientes,gasto,deudora
+6-01-13,Gastos bancarios y comisiones,gasto,deudora
+6-01-99,Gastos varios por clasificar,gasto,deudora

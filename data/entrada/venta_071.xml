@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50625032600310178945600100001010000000071100000071</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000071</NumeroConsecutivo>
+  <FechaEmision>2026-03-25T18:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Soda El Buen Sabor S.R.L.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101445599</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>5610100000000</CodigoCABYS>
+      <Cantidad>38</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Servicio de cafeteria en local</Detalle>
+      <PrecioUnitario>4200</PrecioUnitario>
+      <MontoTotal>159600.00</MontoTotal>
+      <SubTotal>159600.00</SubTotal>
+      <BaseImponible>159600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>20748.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>20748.00</ImpuestoNeto>
+      <MontoTotalLinea>180348.00</MontoTotalLinea>
+    </LineaDetalle>
+    <LineaDetalle>
+      <NumeroLinea>2</NumeroLinea>
+      <CodigoCABYS>2312100000000</CodigoCABYS>
+      <Cantidad>57</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Pan cuadrado blanco 680g</Detalle>
+      <PrecioUnitario>1800</PrecioUnitario>
+      <MontoTotal>102600.00</MontoTotal>
+      <SubTotal>102600.00</SubTotal>
+      <BaseImponible>102600.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>02</CodigoTarifaIVA>
+        <Tarifa>1</Tarifa>
+        <Monto>1026.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>1026.00</ImpuestoNeto>
+      <MontoTotalLinea>103626.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>262200.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>262200.00</TotalVentaNeta>
+    <TotalImpuesto>21774.00</TotalImpuesto>
+    <TotalComprobante>283974.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

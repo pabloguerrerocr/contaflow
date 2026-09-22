@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50618032600310122334400100001010000000015100000015</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000015</NumeroConsecutivo>
+  <FechaEmision>2026-03-18T14:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Refrigeracion Tecnica del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101223344</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>8712100000000</CodigoCABYS>
+      <Cantidad>3</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Mantenimiento camara de frio</Detalle>
+      <PrecioUnitario>34800</PrecioUnitario>
+      <MontoTotal>104400.00</MontoTotal>
+      <SubTotal>104400.00</SubTotal>
+      <BaseImponible>104400.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>13572.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>13572.00</ImpuestoNeto>
+      <MontoTotalLinea>117972.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>104400.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>104400.00</TotalVentaNeta>
+    <TotalImpuesto>13572.00</TotalImpuesto>
+    <TotalComprobante>117972.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

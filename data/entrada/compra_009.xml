@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/FE">
+  <Clave>50620032600011234056700100001010000000009100000009</Clave>
+  <ProveedorSistemas>3101789456</ProveedorSistemas>
+  <CodigoActividadEmisor>107101</CodigoActividadEmisor>
+  <CodigoActividadReceptor>471101</CodigoActividadReceptor>
+  <NumeroConsecutivo>00100001010000000009</NumeroConsecutivo>
+  <FechaEmision>2026-03-20T17:30:00-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>Ana Rojas Vargas</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>112340567</Numero></Identificacion>
+  </Emisor>
+  <Receptor>
+    <Nombre>Panaderia La Espiga del Sur S.A.</Nombre>
+    <Identificacion><Tipo>02</Tipo><Numero>3101789456</Numero></Identificacion>
+  </Receptor>
+  <CondicionVenta>02</CondicionVenta>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <CodigoCABYS>6912100010100</CodigoCABYS>
+      <Cantidad>2</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>Honorarios contables mensuales</Detalle>
+      <PrecioUnitario>18400</PrecioUnitario>
+      <MontoTotal>36800.00</MontoTotal>
+      <SubTotal>36800.00</SubTotal>
+      <BaseImponible>36800.00</BaseImponible>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <CodigoTarifaIVA>08</CodigoTarifaIVA>
+        <Tarifa>13</Tarifa>
+        <Monto>4784.00</Monto>
+      </Impuesto>
+      <ImpuestoNeto>4784.00</ImpuestoNeto>
+      <MontoTotalLinea>41584.00</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda>
+    <TotalVenta>36800.00</TotalVenta>
+    <TotalDescuentos>0.00</TotalDescuentos>
+    <TotalVentaNeta>36800.00</TotalVentaNeta>
+    <TotalImpuesto>4784.00</TotalImpuesto>
+    <TotalComprobante>41584.00</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

@@ -1,21 +1,15 @@
 """Asigna una cuenta contable a cada linea de cada comprobante.
 
 Orden de resolucion:
-  1. Reglas: palabras clave del detalle y prefijo CABYS.
-  2. Cuenta puente 6-01-99 para revision manual.
+  1. Aprendizaje, si esta disponible: memoria por concepto y por proveedor.
+  2. Reglas: palabras clave del detalle y prefijo CABYS.
+  3. Cuenta puente 6-01-99 para revision manual.
 
-Nota sobre esta version
------------------------
-El motor completo resuelve en cuatro niveles, de barato a caro: memoria por
-concepto, memoria por proveedor, reglas y, solo para lo que queda suelto, una
-llamada en lote a un modelo de lenguaje cuyo resultado se guarda en la memoria
-del cliente. Esa cascada es lo que hace que el costo por cierre tienda a cero
-conforme se repite el cliente, y no forma parte de este repositorio.
-
-Lo que si esta acá es el motor contable entero: parseo, reglas, partida doble,
-prorrata y reportes. Con reglas solas, el set de demo clasifica la mayoria de
-las lineas y el resto cae en la cuenta puente, que es exactamente el
-comportamiento esperado de la herramienta cuando no reconoce un concepto.
+El paso 1 es opcional. Si no se pasa un objeto de aprendizaje, el clasificador
+resuelve con reglas y manda a la cuenta puente lo que no reconoce, que es el
+comportamiento correcto de la herramienta cuando ve un concepto nuevo: no
+adivina, avisa. La capa de aprendizaje vive en `aprendizaje.py` y no forma
+parte de la version publica.
 """
 from __future__ import annotations
 
@@ -68,16 +62,17 @@ def normalizar(texto: str) -> str:
 @dataclass
 class Decision:
     cuenta: str
-    fuente: str        # regla | puente
+    fuente: str        # memoria | proveedor | regla | modelo | puente
     confianza: float
 
 
 class Clasificador:
-    def __init__(self, catalogo: Path):
+    def __init__(self, catalogo: Path, aprendizaje=None):
         self.cuentas = {
             f["codigo"]: f["nombre"]
             for f in csv.DictReader(catalogo.open(encoding="utf-8"))
         }
+        self.aprendizaje = aprendizaje
         self.sin_resolver: dict[str, dict] = {}
 
     def _por_reglas(self, linea: Linea) -> str | None:
@@ -97,14 +92,22 @@ class Clasificador:
             es_servicio = linea.cabys.startswith(("5", "6", "7", "8", "9"))
             return Decision("4-01-01" if es_servicio else "4-01-02", "regla", 1.0)
 
+        if self.aprendizaje is not None:
+            recordado = self.aprendizaje.buscar(comp.emisor_cedula, linea.detalle)
+            if recordado is not None:
+                return recordado
+
         cuenta = self._por_reglas(linea)
         if cuenta:
             return Decision(cuenta, "regla", 0.8)
 
         llave = comp.emisor_cedula + "|" + normalizar(linea.detalle)
-        self.sin_resolver.setdefault(llave, {
+        contexto = {
             "proveedor": comp.emisor_nombre,
             "detalle": linea.detalle,
             "cabys": linea.cabys,
-        })
+        }
+        self.sin_resolver.setdefault(llave, contexto)
+        if self.aprendizaje is not None:
+            self.aprendizaje.acumular(llave, contexto)
         return Decision(CUENTA_PUENTE, "puente", 0.0)

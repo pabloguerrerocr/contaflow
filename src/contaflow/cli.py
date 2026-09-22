@@ -14,6 +14,13 @@ from pathlib import Path
 
 from . import asientos, reportes
 from .clasificador import CUENTA_PUENTE, Clasificador
+
+# La capa de aprendizaje es propietaria y no va en la version publica.
+# Sin ella el motor corre igual: reglas y cuenta puente.
+try:
+    from .aprendizaje import Aprendizaje
+except ImportError:
+    Aprendizaje = None
 from .parser import leer_carpeta
 
 RAIZ = Path(__file__).resolve().parents[2]
@@ -33,9 +40,16 @@ def main(argv=None) -> int:
     p.add_argument("--entrada", type=Path, default=RAIZ / "data" / "entrada")
     p.add_argument("--salida", type=Path, default=RAIZ / "salida")
     p.add_argument("--catalogo", type=Path, default=RAIZ / "config" / "catalogo_cuentas.csv")
+    p.add_argument("--memoria", type=Path,
+                   help="JSON de clasificaciones aprendidas. Por defecto, uno por cedula")
+    p.add_argument("--sin-ia", action="store_true",
+                   help="No llamar al modelo; lo no resuelto queda en la cuenta puente")
     args = p.parse_args(argv)
+    if Aprendizaje is None:                      # version publica
+        args.sin_ia = True
 
     t0 = time.time()
+    memoria = args.memoria or (RAIZ / "config" / f"memoria_{args.cedula}.json")
 
     comprobantes, errores = leer_carpeta(args.entrada, args.cedula)
     if not comprobantes:
@@ -50,10 +64,19 @@ def main(argv=None) -> int:
         comprobantes = [c for c in comprobantes if c.periodo == args.periodo]
         periodos = [args.periodo]
 
-    clas = Clasificador(args.catalogo)
+    apr = Aprendizaje(memoria, {}) if Aprendizaje and not args.sin_ia else None
+    clas = Clasificador(args.catalogo, apr)
+    if apr is not None:
+        apr.cuentas = clas.cuentas
 
-    movs = asientos.generar(comprobantes, clas)
+    # Primera pasada: reglas y memoria. Deja pendientes lo que no reconoce.
+    asientos.generar(comprobantes, clas)
     pendientes = len(clas.sin_resolver)
+    resueltas = apr.resolver_pendientes() if apr is not None else 0
+    # Segunda pasada: ya con lo que el modelo aprendio en esta corrida.
+    movs = asientos.generar(comprobantes, clas)
+    if apr is not None:
+        apr.guardar()
 
     desc = asientos.descuadre(movs)
     if desc != 0:
@@ -94,7 +117,10 @@ def main(argv=None) -> int:
     print(f"Comprobantes procesados : {len(comprobantes)}  ({total_lineas} lineas)")
     print(f"Descartados             : {len(errores)}")
     print(f"Periodos                : {', '.join(periodos)}")
-    print(f"Conceptos sin regla: {pendientes} (van a la cuenta puente {CUENTA_PUENTE})")
+    if Aprendizaje is None or args.sin_ia:
+        print(f"Conceptos sin regla: {pendientes} (van a la cuenta puente {CUENTA_PUENTE})")
+    else:
+        print(f"Pendientes de clasificar: {pendientes} -> resueltos por IA: {resueltas}")
     print(f"Automatizacion          : {automatico:.1f}%  ({len(excep)} a revision manual)")
     print(f"Descuadre del diario    : {desc}")
     for per, d in resumen["periodos"].items():

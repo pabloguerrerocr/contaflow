@@ -1,5 +1,7 @@
 # contaflow
 
+*[English version](README.en.md)*
+
 Cierre contable mensual automatizado a partir de los comprobantes electrónicos
 del Ministerio de Hacienda (Costa Rica). Entra una carpeta de XML, sale el
 Excel que el cliente firma y el número que va en el Formulario 150.

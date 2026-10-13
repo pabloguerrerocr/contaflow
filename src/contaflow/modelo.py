@@ -53,6 +53,9 @@ class Comprobante:
     total_iva: Decimal
     total: Decimal
     lineas: list[Linea] = field(default_factory=list)
+    # OtrosCargos: (detalle, monto). Suman al TotalComprobante pero no son lineas
+    # de detalle ni llevan IVA: cuota de un equipo financiado, impuesto 911, etc.
+    otros_cargos: list[tuple[str, Decimal]] = field(default_factory=list)
     archivo: str = ""
 
     # --- rol del comprobante respecto al cliente que estamos contabilizando ---

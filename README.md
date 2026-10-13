@@ -11,6 +11,29 @@ Excel que el cliente firma y el número que va en el Formulario 150.
 > —memoria de clasificaciones por cliente y resolución de conceptos nuevos con
 > un modelo de lenguaje— no forma parte de esta versión.
 
+## Validación con comprobantes reales
+
+La demo sintética daba 94 % de automatización y cero errores. La primera prueba
+con XML reales (5 emisores, versiones 4.3 y 4.4) encontró **tres errores que la
+demo escondía**: un descuadre de ₡0,01 por redondeo, prefijos CABYS que mandaban
+papel a combustibles y `OtrosCargos` (911, Cruz Roja) que se perdían.
+
+Corregidos los tres, `scripts/experimento.py` prueba seis hipótesis contra el
+`ResumenFactura` de cada XML —firmado por el emisor y aceptado por Hacienda—,
+leído aparte, sin pasar por el parser:
+
+| Hipótesis | Reales | Demo |
+|---|---|---|
+| Lee todo sin error | 11 / 11 | 88 / 88 |
+| Base, IVA y total = resumen del XML | 9 / 9 | 88 / 88 |
+| Cada asiento cuadra en 0,00 | 9 / 9 | 88 / 88 |
+| Clasificado sin intervención | 25 % | 94 % |
+
+Control negativo: al reinyectar el error de `OtrosCargos`, la conciliación marca
+los 3 comprobantes afectados. Muestra real chica (9 comprobantes de compras
+personales, que no se publican): sirve para encontrar errores, no para prometer
+un porcentaje.
+
 ## Qué hace
 
 ```
@@ -33,9 +56,9 @@ XML de Hacienda ──> parser ──> clasificador ──> asientos ──> rep
 3. **Asientos.** Partida doble, con IVA acreditable y por pagar separados.
    El diario se valida: `descuadre()` tiene que dar `0.00` o el CLI avisa.
 4. **Reportes.** Libro de compras, libro de ventas, diario, balance de
-   comprobación, estado de resultados, resumen del Formulario 150 y —el que
-   sostiene la confianza— la hoja de **excepciones**: lo que la máquina no
-   pudo clasificar sola o clasificó con confianza baja.
+   comprobación, estado de resultados, resumen del Formulario 150, la hoja de
+   **excepciones** (lo que la máquina no pudo clasificar sola) y la de
+   **conciliación XML**: cada comprobante contra el total firmado en su XML.
 
 ## Uso
 
@@ -75,14 +98,14 @@ proyecto: si un cambio lo rompe, el cambio está mal.
 - **Sin la capa de aprendizaje, los conceptos nuevos van a la cuenta puente.**
   En el set de demo son 4 de 149 líneas; con reglas calibradas para un cliente
   concreto bajan, pero nunca a cero: siempre aparece un proveedor nuevo.
-- **`REGLAS_CABYS` son aproximaciones,** no el catálogo CABYS oficial. Antes de
-  usar esto con un cliente real hay que calibrar los prefijos contra el
-  catálogo de Hacienda. Por eso el texto tiene prioridad sobre el CABYS.
+- **`REGLAS_CABYS` mapean divisiones CPC 2.1 (2 dígitos),** no el catálogo
+  completo: solo las que no dependen del giro del cliente. El texto tiene
+  prioridad sobre el CABYS.
 - **La prorrata de crédito fiscal se calcula, no se aplica sola.** Si hay ventas
   exentas, `resumen_iva` marca `aplica_prorrata` y da ambas cifras. La decisión
   es del contador (art. 27, Ley 6826).
-- **La ingesta es una carpeta local.** El siguiente paso obvio es leer el buzón
-  IMAP del cliente, que es por donde llegan los XML en la vida real.
+- **La ingesta es una carpeta local.** `scripts/descargar_imap.py` baja los XML
+  de un buzón IMAP a esa carpeta; todavía no está integrado al CLI.
 - **No emite comprobantes ni presenta declaraciones.** Prepara el número; el
   envío a TRIBU-CR lo hace una persona.
 

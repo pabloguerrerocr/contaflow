@@ -88,6 +88,7 @@ def main(argv=None) -> int:
         "Diario": [asdict(m) | {"fecha": m.fecha.isoformat()} for m in movs],
         "Balance comprobacion": reportes.balance_comprobacion(movs, args.catalogo),
         "Excepciones": reportes.excepciones(movs),
+        "Conciliacion XML": reportes.conciliacion(comprobantes, movs),
     }
 
     resumen = {"cedula": args.cedula, "periodos": {}}
@@ -111,7 +112,8 @@ def main(argv=None) -> int:
         json.dumps(resumen, indent=2, ensure_ascii=False, default=_json), encoding="utf-8")
 
     excep = hojas["Excepciones"]
-    total_lineas = sum(len(c.lineas) for c in comprobantes)
+    # Los otros cargos cuentan como lineas: tambien hay que clasificarlos.
+    total_lineas = sum(len(c.lineas) + len(c.otros_cargos) for c in comprobantes)
     automatico = 100 * (1 - len(excep) / total_lineas) if total_lineas else 0
 
     print(f"Comprobantes procesados : {len(comprobantes)}  ({total_lineas} lineas)")
@@ -123,6 +125,9 @@ def main(argv=None) -> int:
         print(f"Pendientes de clasificar: {pendientes} -> resueltos por IA: {resueltas}")
     print(f"Automatizacion          : {automatico:.1f}%  ({len(excep)} a revision manual)")
     print(f"Descuadre del diario    : {desc}")
+    conc = hojas["Conciliacion XML"]
+    ok = sum(f["estado"] == "OK" for f in conc)
+    print(f"Conciliacion vs XML     : {ok}/{len(conc)} comprobantes cuadran con su total firmado")
     for per, d in resumen["periodos"].items():
         f150 = d["formulario_150"]
         er = d["estado_resultados"]

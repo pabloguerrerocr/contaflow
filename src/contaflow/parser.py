@@ -137,6 +137,8 @@ def leer_xml(ruta: Path) -> Comprobante | None:
         total_iva=_dec(resumen, "TotalImpuesto") if resumen is not None else Decimal("0"),
         total=_dec(resumen, "TotalComprobante") if resumen is not None else Decimal("0"),
         lineas=lineas,
+        otros_cargos=[(_txt(n, "Detalle") or "Otros cargos", _dec(n, "MontoCargo"))
+                      for n in _hijos(raiz, "OtrosCargos")],
         archivo=ruta.name,
     )
 

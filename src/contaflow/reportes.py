@@ -5,6 +5,7 @@
   - Balance de comprobacion
   - Estado de resultados
   - Excepciones: lo que la maquina no pudo clasificar sola
+  - Conciliacion XML: cada comprobante contra los totales que trae firmados
 """
 from __future__ import annotations
 
@@ -13,7 +14,7 @@ from collections import defaultdict
 from decimal import Decimal
 from pathlib import Path
 
-from .asientos import Movimiento, r
+from .asientos import CAJA, CXC, CXP, Movimiento, r
 from .clasificador import CUENTA_PUENTE
 from .modelo import Comprobante
 
@@ -161,6 +162,39 @@ def excepciones(movs: list[Movimiento]) -> list[dict]:
 
 
 # ---------------------------------------------------------------- Excel
+TOLERANCIA = Decimal("1.00")
+
+
+def conciliacion(comprobantes: list[Comprobante], movs: list[Movimiento]) -> list[dict]:
+    """Compara lo registrado contra el ResumenFactura de cada XML.
+
+    El resumen lo firma el emisor y lo acepta Hacienda: es la cifra contra la que
+    TRIBU-CR cruza la declaracion. Si base, IVA y total coinciden (+-1 colon por
+    redondeo), el comprobante esta bien registrado aunque una linea siga en revision.
+    """
+    contra: dict[str, Decimal] = defaultdict(lambda: CERO)
+    for m in movs:
+        if m.cuenta in (CAJA, CXC, CXP):
+            contra[m.clave] += m.haber if m.rol == "compra" else m.debe
+    filas = []
+    for c in comprobantes:
+        base = r(sum((c.en_colones(l.subtotal) for l in c.lineas), CERO))
+        iva = r(sum((c.en_colones(l.monto_iva) for l in c.lineas), CERO))
+        total_xml = r(c.en_colones(c.total))
+        dif = abs(contra[c.clave]) - total_xml
+        ok = (abs(base - r(c.en_colones(c.subtotal))) <= TOLERANCIA
+              and abs(iva - r(c.en_colones(c.total_iva))) <= TOLERANCIA
+              and abs(dif) <= TOLERANCIA)
+        filas.append({
+            "comprobante": c.consecutivo, "contraparte": c.emisor_nombre if c.rol == "compra"
+            else c.receptor_nombre, "base_xml": r(c.en_colones(c.subtotal)), "base_registrada": base,
+            "iva_xml": r(c.en_colones(c.total_iva)), "iva_registrado": iva,
+            "total_xml": total_xml, "total_registrado": abs(contra[c.clave]),
+            "diferencia": dif, "estado": "OK" if ok else "REVISAR",
+        })
+    return filas
+
+
 def exportar_excel(destino: Path, hojas: dict[str, list[dict]]) -> Path:
     import pandas as pd
 

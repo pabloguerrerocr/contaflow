@@ -24,13 +24,22 @@ from .modelo import Comprobante, Linea
 CUENTA_PUENTE = "6-01-99"
 
 # CABYS: los 2 primeros digitos son la seccion del catalogo de bienes y servicios.
+# CABYS sigue la CPC 2.1 de la ONU: los 2 digitos son la division CPC.
+# Contrastado con comprobantes reales (oct 2026): telecom de Claro en 84,
+# papel higienico en 32 (papel, NO combustibles), jabon en 35, carnes en 21.
+# Solo se mapean divisiones sin ambiguedad; lo demas va a revision.
 REGLAS_CABYS = {
-    "23": "1-01-04",   # productos alimenticios -> inventario
-    "32": "6-01-03",   # combustibles
-    "65": "6-01-02",   # electricidad, agua, telecomunicaciones
-    "68": "6-01-01",   # servicios inmobiliarios
-    "69": "6-01-06",   # servicios juridicos y contables
+    "23": "1-01-04",   # productos de molineria y otros alimentos -> inventario
+    "33": "6-01-03",   # derivados del petroleo: combustibles y lubricantes
+    "17": "6-01-02",   # energia electrica y gas
+    "18": "6-01-02",   # agua natural
+    "69": "6-01-02",   # distribucion de electricidad, gas y agua
+    "84": "6-01-02",   # telecomunicaciones e internet
+    "72": "6-01-01",   # servicios inmobiliarios (alquileres)
+    "82": "6-01-06",   # servicios juridicos y contables
     "87": "6-01-04",   # mantenimiento y reparacion
+    "65": "6-01-11",   # transporte de carga
+    "68": "6-01-11",   # correo y mensajeria
 }
 
 REGLAS_TEXTO = [

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from datetime import date
 from decimal import ROUND_HALF_UP, Decimal
 
-from .clasificador import Clasificador
+from .clasificador import CUENTA_PUENTE, Clasificador
 from .modelo import Comprobante
 
 CENTIMO = Decimal("0.01")
@@ -65,7 +65,9 @@ def asientos_de(comp: Comprobante, clas: Clasificador) -> list[Movimiento]:
 
     for linea in comp.lineas:
         d = clas.clasificar(comp, linea)
-        base = comp.en_colones(linea.subtotal) * s
+        # Cada linea se redondea antes de sumarse: si la contrapartida se
+        # calcula sobre montos sin redondear, el diario descuadra por centimos.
+        base = r(comp.en_colones(linea.subtotal) * s)
         iva = comp.en_colones(linea.monto_iva) * s
         base_total += base
         iva_total += iva
@@ -76,6 +78,19 @@ def asientos_de(comp: Comprobante, clas: Clasificador) -> list[Movimiento]:
             movs.append(_mov(comp, d.cuenta, linea.detalle, haber=base,
                              fuente=d.fuente, confianza=d.confianza))
 
+    # Los otros cargos van completos a revision: pueden ser gasto (impuesto 911)
+    # o no serlo (la cuota de un equipo financiado). Lo decide el contador.
+    for detalle, monto in comp.otros_cargos:
+        cargo = r(comp.en_colones(monto) * s)
+        base_total += cargo
+        if comp.rol == "compra":
+            movs.append(_mov(comp, CUENTA_PUENTE, "Otro cargo: " + detalle, debe=cargo,
+                             fuente="puente", confianza=0.0))
+        else:
+            movs.append(_mov(comp, CUENTA_PUENTE, "Otro cargo: " + detalle, haber=cargo,
+                             fuente="puente", confianza=0.0))
+
+    iva_total = r(iva_total)
     if comp.rol == "compra":
         if iva_total:
             movs.append(_mov(comp, IVA_ACREDITABLE, "IVA soportado", debe=iva_total))

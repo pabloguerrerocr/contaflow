@@ -19,18 +19,18 @@ NOMBRE_CLIENTE = "Panaderia La Espiga del Sur S.A."
 
 PROVEEDORES = [
     ("3101112233", "Distribuidora Harinas del Valle S.A.", "2311100000000", "Harina de trigo fortificada 50kg", "13", "1-01-04"),
-    ("3101445566", "Compania Nacional de Fuerza y Luz", "6531100000100", "Servicio electrico comercial marzo", "13", "6-01-02"),
-    ("3101778899", "Servicentro El Roble S.A.", "3221100000000", "Diesel 45 litros", "13", "6-01-03"),
-    ("112340567", "Ana Rojas Vargas", "6912100010100", "Honorarios contables mensuales", "13", "6-01-06"),
-    ("3101990011", "Inmobiliaria Perez Zeledon S.A.", "6811100000000", "Alquiler de local comercial", "13", "6-01-01"),
-    ("3102334455", "Seguros del Istmo Ltda.", "6512100000000", "Prima poliza incendio", "2", "6-01-08"),
-    ("3101667788", "Suministros de Oficina CR S.A.", "1709100000000", "Resma papel bond carta x10", "13", "6-01-05"),
+    ("3101445566", "Compania Nacional de Fuerza y Luz", "6911100000100", "Servicio electrico comercial marzo", "13", "6-01-02"),
+    ("3101778899", "Servicentro El Roble S.A.", "3336100000000", "Diesel 45 litros", "13", "6-01-03"),
+    ("112340567", "Ana Rojas Vargas", "8222100010100", "Honorarios contables mensuales", "13", "6-01-06"),
+    ("3101990011", "Inmobiliaria Perez Zeledon S.A.", "7211200000000", "Alquiler de local comercial", "13", "6-01-01"),
+    ("3102334455", "Seguros del Istmo Ltda.", "7133100000000", "Prima poliza incendio", "2", "6-01-08"),
+    ("3101667788", "Suministros de Oficina CR S.A.", "3212100000000", "Resma papel bond carta x10", "13", "6-01-05"),
     ("3101223344", "Refrigeracion Tecnica del Sur S.A.", "8712100000000", "Mantenimiento camara de frio", "13", "6-01-04"),
-    ("3101556677", "Transportes Rapidos Zeledon S.A.", "6491100000000", "Flete de mercaderia San Jose", "13", "6-01-11"),
+    ("3101556677", "Transportes Rapidos Zeledon S.A.", "6511100000000", "Flete de mercaderia San Jose", "13", "6-01-11"),
     ("3012456789", "Caja Costarricense de Seguro Social", "0000000000000", "Cuotas obrero patronales", "0", "6-01-09"),
     # --- Los ambiguos: ninguna regla los resuelve. Aca entra el modelo. ---
     ("3101010203", "Comercial Zeta del Sur S.A.", "4759100000000", "Articulos varios segun detalle adjunto", "13", None),
-    ("3101040506", "Servicios Integrales GYS S.A.", "8299100000000", "Servicio mensual segun contrato 2026", "13", None),
+    ("3101040506", "Servicios Integrales GYS S.A.", "8599100000000", "Servicio mensual segun contrato 2026", "13", None),
     ("110220330", "Marvin Solis Mora", "4330100000000", "Trabajo realizado en local comercial", "13", None),
     ("3101070809", "Almacen El Progreso Ltda.", "2599100000000", "Bandejas metalicas industriales x24", "13", None),
 ]
@@ -46,7 +46,7 @@ VENTAS = [
     ("2312100000000", "Pan cuadrado blanco 680g", "1"),
     ("2312100000100", "Pan dulce surtido docena", "1"),
     ("2313100000000", "Queque seco de naranja", "13"),
-    ("5610100000000", "Servicio de cafeteria en local", "13"),
+    ("6331100000000", "Servicio de cafeteria en local", "13"),
 ]
 
 

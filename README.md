@@ -2,25 +2,32 @@
 
 *[English version](README.en.md)*
 
-Cierre contable mensual automatizado a partir de los comprobantes electrónicos
-del Ministerio de Hacienda (Costa Rica). Entra una carpeta de XML, sale el
-Excel que el cliente firma y el número que va en el Formulario 150.
+**Pregunta.** ¿Se puede automatizar el cierre contable mensual de una empresa
+costarricense a partir de los comprobantes electrónicos de Hacienda, sin que la
+herramienta adivine?
+
+**Respuesta corta.** Sí, si lo que no reconoce va a revisión en vez de a una cuenta
+inventada. Entra una carpeta de XML y sale el Excel que el cliente firma y el número
+del Formulario 150. En el set de demostración (88 comprobantes) clasifica sola el
+94 % de las líneas, el diario cuadra en 0,00 y los 88 comprobantes coinciden con el
+total firmado en su XML. Con facturas reales, la primera prueba encontró tres errores
+que la demo escondía.
 
 > **Sobre este repositorio.** Está publicado el motor contable completo:
 > parseo, reglas, partida doble, prorrata y reportes. La capa de aprendizaje
 > —memoria de clasificaciones por cliente y resolución de conceptos nuevos con
 > un modelo de lenguaje— no forma parte de esta versión.
 
-## Validación con comprobantes reales
+## Tres hallazgos
 
-La demo sintética daba 94 % de automatización y cero errores. La primera prueba
-con XML reales (5 emisores, versiones 4.3 y 4.4) encontró **tres errores que la
-demo escondía**: un descuadre de ₡0,01 por redondeo, prefijos CABYS que mandaban
+**1. La demo escondía tres errores.** La demo sintética daba 94 % de automatización y
+cero errores. La primera prueba con XML reales (5 emisores, versiones 4.3 y 4.4)
+encontró tres errores: un descuadre de ₡0,01 por redondeo, prefijos CABYS que mandaban
 papel a combustibles y `OtrosCargos` (911, Cruz Roja) que se perdían.
 
-Corregidos los tres, `scripts/experimento.py` prueba seis hipótesis contra el
-`ResumenFactura` de cada XML —firmado por el emisor y aceptado por Hacienda—,
-leído aparte, sin pasar por el parser:
+**2. Corregidos, todo concilia contra la verdad firmada.** `scripts/experimento.py`
+prueba seis hipótesis contra el `ResumenFactura` de cada XML —firmado por el emisor y
+aceptado por Hacienda—, leído aparte, sin pasar por el parser:
 
 | Hipótesis | Reales | Demo |
 |---|---|---|
@@ -30,9 +37,12 @@ leído aparte, sin pasar por el parser:
 | Clasificado sin intervención | 25 % | 94 % |
 
 Control negativo: al reinyectar el error de `OtrosCargos`, la conciliación marca
-los 3 comprobantes afectados. Muestra real chica (9 comprobantes de compras
-personales, que no se publican): sirve para encontrar errores, no para prometer
-un porcentaje.
+los 3 comprobantes afectados.
+
+**3. Con facturas reales, la automatización es mucho menor que en la demo:** 25 %
+frente a 94 %. Lo que ninguna regla reconoce va a la hoja de excepciones en lugar de a
+una cuenta adivinada. La muestra real es chica (9 comprobantes de compras personales,
+que no se publican): sirve para encontrar errores, no para prometer un porcentaje.
 
 ## Qué hace
 
@@ -60,28 +70,38 @@ XML de Hacienda ──> parser ──> clasificador ──> asientos ──> rep
    **excepciones** (lo que la máquina no pudo clasificar sola) y la de
    **conciliación XML**: cada comprobante contra el total firmado en su XML.
 
-## Uso
+## Datos
+
+Comprobantes electrónicos de Hacienda en XML, versiones 4.3 y 4.4. El set de
+demostración ya viene en `data/entrada/`: 88 comprobantes sintéticos (27 compras, 60
+ventas y una nota de crédito) de una empresa ficticia, generados por
+`scripts/generar_demo.py`. No son de ningún cliente real. Los comprobantes reales de
+la validación no se publican.
+
+## Cómo correrlo
 
 ```bash
+git clone https://github.com/pabloguerrerocr/contaflow.git
+cd contaflow
 pip install -r requirements.txt
-
-# Datos de demo (sintéticos, no son de ningún cliente real)
-python scripts/generar_demo.py data/entrada
-
-# Cierre del mes
-PYTHONPATH=src python -m contaflow --cedula 3101789456 --periodo 2026-03
-
+export PYTHONPATH=src            # Windows: set PYTHONPATH=src
+python -m contaflow --cedula 3101789456 --periodo 2026-03     # el cierre del mes
+python scripts/experimento.py data/entrada 3101789456         # las seis hipótesis
 ```
 
-Salida sobre el set de demo (88 comprobantes, 149 líneas):
+Salida sobre el set de demostración (88 comprobantes, 149 líneas):
 
 ```
 Comprobantes procesados : 88  (149 lineas)
-Conceptos sin regla     : 4 (van a la cuenta puente 6-01-99)
+Conceptos sin regla: 4 (van a la cuenta puente 6-01-99)
 Automatizacion          : 94.0%  (9 a revision manual)
 Descuadre del diario    : 0.00
+Conciliacion vs XML     : 88/88 comprobantes cuadran con su total firmado
   2026-03  IVA a pagar:   737,701.50   utilidad neta:  13,346,200.00
 ```
+
+`python scripts/generar_demo.py data/entrada` regenera el set de demostración.
+Probado con Python 3.13 y pandas 3.1.
 
 El **descuadre del diario tiene que dar `0.00`**. Es el invariante del
 proyecto: si un cambio lo rompe, el cambio está mal.
